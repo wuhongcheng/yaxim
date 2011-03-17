@@ -17,6 +17,7 @@ import org.yaxim.androidclient.util.ExpandableRosterAdapter;
 import org.yaxim.androidclient.util.PreferenceConstants;
 import org.yaxim.androidclient.util.StatusMode;
 
+import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.ComponentName;
@@ -78,6 +79,9 @@ public class MainWindow extends GenericExpandableListActivity {
 		createUICallback();
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setupContenView();
+		Configuration c = new Configuration(ActivityManagerNative.getDefault().getConfiguration());
+		c.fontScale = 0.75;
+		ActivityManagerNative.getDefault().updateConfiguration(c);
 	}
 
 	void setupContenView() {
