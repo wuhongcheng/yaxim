@@ -26,6 +26,7 @@
 
 	<!-- Notifications -->
 	<string name="notification_message">Message from %s:</string>
+	<string name="notification_available">%s is available.</string>
 
 	<!-- Notification Settings -->
 	<string name="preftitle_notify">Message Notification</string>
@@ -37,6 +38,8 @@
 	<string name="vibr_summOff">Vibration notification are off</string>
 	<string name="ringtone_title">Ringtone</string>
 	<string name="ringtone_summ">Tone for incoming messages</string>
+	<string name="ringtone_avail_title">Presence ringtone</string>
+	<string name="ringtone_avail_summ">Sound to play when a contact is available</string>
 
 	<!-- Startup Setting Strings -->
 	<string name="preftitle_boot">Startup Options</string>
@@ -100,6 +103,7 @@
 	<string name="roster_contextmenu_contact_rename">Rename</string>
 	<string name="roster_contextmenu_contact_request_auth">Request Authorization</string>
 	<string name="roster_contextmenu_contact_change_group">Change Group</string>
+	<string name="roster_contextmenu_contact_notify_available">Presence Notification</string>
 
 	<!-- Accountprefs -->
 	<string name="account_settings_login">Login Information</string>
