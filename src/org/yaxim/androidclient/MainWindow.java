@@ -89,13 +89,20 @@ public class MainWindow extends ExpandableListActivity {
 	private ContentObserver mRosterObserver = new RosterObserver();
 	private HashMap<String, Boolean> mGroupsExpanded = new HashMap<String, Boolean>();
 
+	private String mTheme;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-
 		mConfig = new YaximConfiguration(PreferenceManager
 				.getDefaultSharedPreferences(this));
+		mTheme = mConfig.theme;
+		if (mConfig.theme.equals("light")) {
+			setTheme(R.style.LightTheme_NoTitle);
+		} else {
+			setTheme(R.style.DarkTheme_NoTitle);
+		}
+		super.onCreate(savedInstanceState);
+
 		registerCrashReporter();
 
 		showFirstStartUpDialogIfPrefsEmpty();
@@ -225,7 +232,16 @@ public class MainWindow extends ExpandableListActivity {
 	protected void onResume() {
 		super.onResume();
 		getPreferences(PreferenceManager.getDefaultSharedPreferences(this));
+		if (mConfig.theme.equals(mTheme) == false) {
+			// restart
+			Intent restartIntent = new Intent(this, MainWindow.class);
+			restartIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(restartIntent);
+			finish();
+			return;
+		}
 		updateRoster();
+
 		bindXMPPService();
 
 		YaximApplication.getApp(this).mMTM.bindDisplayActivity(this);

@@ -39,6 +39,8 @@ public class YaximConfiguration implements OnSharedPreferenceChangeListener {
 
 	public boolean smackdebug;
 
+	public String theme;
+
 	private final SharedPreferences prefs;
 
 	public YaximConfiguration(SharedPreferences _prefs) {
@@ -118,6 +120,7 @@ public class YaximConfiguration implements OnSharedPreferenceChangeListener {
 		this.statusMode = prefs.getString(PreferenceConstants.STATUS_MODE, "available");
 		this.statusMessage = prefs.getString(PreferenceConstants.STATUS_MESSAGE, "");
 
+		this.theme = prefs.getString(PreferenceConstants.THEME, "dark");
 		try {
 			XMPPHelper.verifyJabberID(jabberID);
 			splitAndSetJabberID(jabberID);
