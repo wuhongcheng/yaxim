@@ -937,8 +937,10 @@ public class MainWindow extends GenericExpandableListActivity {
 		}
 		public void onChange(boolean selfChange) {
 			Log.d(TAG, "RosterObserver.onChange: " + selfChange);
-			if (getExpandableListAdapter() != null)
+			if (getExpandableListAdapter() != null) {
+				rosterListAdapter.requery();
 				restoreGroupsExpanded();
+			}
 		}
 	}
 }
