@@ -9,7 +9,7 @@
 	<string name="conn_offline">Desconectado</string>
 	<string name="conn_empty_roster">No hay contactos para mostrar</string>
 	<string name="conn_reconnect">\nReconectar en %d segundos.</string>
-	<string name="conn_disconnected">Connection closed</string>
+	<string name="conn_disconnected">Conexión cerrada</string>
 	<string name="conn_networkchg">Network changed</string>
 
 	<!-- Global Strings -->

@@ -873,10 +873,12 @@ public class MainWindow extends ExpandableListActivity {
 		RosterProvider.GroupsConstants.GROUP,
 	};
 	private static final String[] GROUPS_FROM = new String[] {
-		RosterProvider.GroupsConstants.GROUP
+		RosterProvider.GroupsConstants.GROUP,
+		RosterProvider.GroupsConstants.GROUP_COUNT
 	};
 	private static final int[] GROUPS_TO = new int[] {
-		R.id.groupname
+		R.id.groupname,
+		R.id.groupcount
 	};
 	private static final String[] ROSTER_QUERY = new String[] {
 		RosterProvider.RosterConstants._ID,

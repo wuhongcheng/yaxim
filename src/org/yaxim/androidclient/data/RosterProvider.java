@@ -369,6 +369,7 @@ public class RosterProvider extends ContentProvider {
 				+ " ASC";
 
 		public static final String GROUP = "roster_group";
+		public static final String GROUP_COUNT = "count(*)";
 		public static final String COLLAPSED = "collapsed";
 
 		public static ArrayList<String> getRequiredColumns() {
