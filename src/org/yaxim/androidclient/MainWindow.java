@@ -93,8 +93,7 @@ public class MainWindow extends ExpandableListActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		mConfig = new YaximConfiguration(PreferenceManager
-				.getDefaultSharedPreferences(this));
+		mConfig = YaximApplication.getConfig(this);
 		mTheme = mConfig.theme;
 		if (mConfig.theme.equals("light")) {
 			setTheme(R.style.LightTheme_NoTitle);
