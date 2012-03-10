@@ -334,9 +334,12 @@ public class ChatWindow extends ListActivity implements OnKeyListener,
 			switch (delivery_status) {
 			case 0:
 				ColorDrawable layers[] = new ColorDrawable[2];
-				layers[0] = new ColorDrawable(0xff404040);
+				getTheme().resolveAttribute(R.attr.ChatNewMessageColor, tv, true);
+				layers[0] = new ColorDrawable(tv.data);
 				if (from_me) {
-					layers[1] = new ColorDrawable(0x60404040);
+					// message stored for later transmission
+					getTheme().resolveAttribute(R.attr.ChatStoredMessageColor, tv, true);
+					layers[1] = new ColorDrawable(tv.data);
 				} else {
 					layers[1] = new ColorDrawable(0x00000000);
 				}

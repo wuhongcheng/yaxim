@@ -8,4 +8,6 @@
 	<!-- Attributes -->
 	<attr name="ChatMsgHeaderMeColor" format="reference|color" />
 	<attr name="ChatMsgHeaderYouColor" format="reference|color" />
+	<attr name="ChatNewMessageColor" format="reference|color" />
+	<attr name="ChatStoredMessageColor" format="reference|color" />
 </resources>
