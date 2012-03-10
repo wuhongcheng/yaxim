@@ -1,5 +1,6 @@
 package org.yaxim.androidclient.data;
 
+import org.yaxim.androidclient.R;
 import org.yaxim.androidclient.exceptions.YaximXMPPAdressMalformedException;
 import org.yaxim.androidclient.util.PreferenceConstants;
 import org.yaxim.androidclient.util.XMPPHelper;
@@ -126,6 +127,15 @@ public class YaximConfiguration implements OnSharedPreferenceChangeListener {
 			splitAndSetJabberID(jabberID);
 		} catch (YaximXMPPAdressMalformedException e) {
 			Log.e(TAG, "Exception in getPreferences(): " + e);
+		}
+	}
+
+
+	public int getTheme() {
+		if (theme.equals("light")) {
+			return R.style.LightTheme_NoTitle;
+		} else {
+			return R.style.DarkTheme_NoTitle;
 		}
 	}
 }

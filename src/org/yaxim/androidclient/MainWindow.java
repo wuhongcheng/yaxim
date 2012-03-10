@@ -95,11 +95,7 @@ public class MainWindow extends ExpandableListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		mConfig = YaximApplication.getConfig(this);
 		mTheme = mConfig.theme;
-		if (mConfig.theme.equals("light")) {
-			setTheme(R.style.LightTheme_NoTitle);
-		} else {
-			setTheme(R.style.DarkTheme_NoTitle);
-		}
+		setTheme(mConfig.getTheme());
 		super.onCreate(savedInstanceState);
 
 		registerCrashReporter();

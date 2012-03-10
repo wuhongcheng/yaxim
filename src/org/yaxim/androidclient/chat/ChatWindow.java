@@ -5,6 +5,7 @@ import java.util.Date;
 
 import org.yaxim.androidclient.MainWindow;
 import org.yaxim.androidclient.R;
+import org.yaxim.androidclient.YaximApplication;
 import org.yaxim.androidclient.data.ChatProvider;
 import org.yaxim.androidclient.data.ChatProvider.ChatConstants;
 import org.yaxim.androidclient.service.IXMPPChatService;
@@ -73,12 +74,7 @@ public class ChatWindow extends ListActivity implements OnKeyListener,
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		String theme = PreferenceManager.getDefaultSharedPreferences(this).getString(PreferenceConstants.THEME, "dark");
-		if (theme.equals("light")) {
-			setTheme(R.style.LightTheme_NoTitle);
-		} else {
-			setTheme(R.style.DarkTheme_NoTitle);
-		}
+		setTheme(YaximApplication.getConfig(this).getTheme());
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.mainchat);
