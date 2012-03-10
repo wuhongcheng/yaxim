@@ -4,6 +4,7 @@
 	<!-- View styles -->
 	<attr name="GroupName" format="reference" />
 	<attr name="GroupItem" format="reference" />
+	<attr name="ErrorView" format="reference" />
 	
 	<!-- Attributes -->
 	<attr name="ChatMsgHeaderMeColor" format="reference|color" />

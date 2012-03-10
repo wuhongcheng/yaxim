@@ -3,6 +3,7 @@
 	<style name="LightTheme" parent="@android:style/Theme.Light">
 		<item name="GroupName">@style/RosterGroupName.Light</item>
 		<item name="GroupItem">@style/RosterGroupItem.Light</item>
+		<item name="ErrorView">@style/StyleErrorView.Light</item>
 		<item name="android:listSeparatorTextViewStyle">@style/PreferenceListHeader</item>
 		<item name="ChatMsgHeaderMeColor">#ff6d6dcc</item>
 		<item name="ChatMsgHeaderYouColor">#ffcc5050</item>
@@ -13,6 +14,7 @@
 	<style name="DarkTheme" parent="@android:style/Theme.Black">
 		<item name="GroupName">@style/RosterGroupName.Dark</item>
 		<item name="GroupItem">@style/RosterGroupItem</item>
+		<item name="ErrorView">@style/StyleErrorView</item>
 		<item name="ChatMsgHeaderMeColor">#ff8888ff</item>
 		<item name="ChatMsgHeaderYouColor">#ffff8888</item>
 		<item name="ChatNewMessageColor">#ff404040</item>
