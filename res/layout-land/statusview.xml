@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+		android:id="@+id/statusLayout" 
+		android:orientation="vertical"
+		android:layout_width="fill_parent" 
+		android:minWidth="320sp" 
+		android:layout_height="fill_parent"
+		android:paddingLeft="10dp"
+		android:paddingRight="10dp"
+		android:paddingBottom="10dp"
+		android:paddingTop="10dp"
+		>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="15dp"
+		>
+		<Spinner android:id="@+id/statusview_spinner"
+			android:layout_height="wrap_content"
+			android:layout_width="0dp"
+			android:layout_weight="1" 
+			android:layout_marginRight="15dp"
+			android:prompt="@string/setStatusTitle"
+			/>
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/account_prio_title"
+			android:textSize="20sp"
+			android:padding="5sp"
+			/>
+		<EditText android:id="@+id/statusview_prio"
+			android:layout_height="wrap_content"
+			android:layout_width="60sp"
+			android:numeric="integer|signed"
+			android:singleLine="true"
+			/>
+	</LinearLayout>
+	<EditText android:id="@+id/statusview_message"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:hint="@string/setStatusmsgHint"
+		android:layout_marginBottom="10dp"
+		android:singleLine="true"
+	/>
+</LinearLayout>

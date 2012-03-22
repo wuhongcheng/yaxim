@@ -19,6 +19,7 @@ import org.yaxim.androidclient.util.PreferenceConstants;
 import org.yaxim.androidclient.util.StatusMode;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ExpandableListActivity;
 import android.content.Context;
 import android.content.ComponentName;
@@ -307,6 +308,20 @@ public class MainWindow extends SherlockExpandableListActivity {
 				!menuName.equals(AdapterConstants.EMPTY_GROUP));
 
 		menu.setHeaderTitle(getString(R.string.roster_contextmenu_title, menuName));
+	}
+
+	static final int DLG_FIRST_START	= 0;
+	static final int DLG_CHANGE_STATUS	= 1;
+	@Override
+	protected Dialog onCreateDialog(int id, Bundle args) {
+		switch (id) {
+		case DLG_FIRST_START:
+			return new FirstStartDialog(this, serviceAdapter);
+		case DLG_CHANGE_STATUS:
+			return new ChangeStatusDialog(this);
+		default:
+			return null;
+		}
 	}
 
 	void removeChatHistory(final String JID) {
@@ -644,7 +659,7 @@ public class MainWindow extends SherlockExpandableListActivity {
 
 		case android.R.id.home:
 		case R.id.menu_status:
-			new ChangeStatusDialog(this).show();
+			showDialog(DLG_CHANGE_STATUS);
 			return true;
 
 		case R.id.menu_exit:
@@ -855,7 +870,7 @@ public class MainWindow extends SherlockExpandableListActivity {
 			PreferenceManager.setDefaultValues(this, R.layout.accountprefs, false);
 
 			// show welcome dialog
-			new FirstStartDialog(this, serviceAdapter).show();
+			showDialog(DLG_FIRST_START);
 		}
 	}
 
