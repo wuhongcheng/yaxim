@@ -980,13 +980,9 @@ public class MainWindow extends SherlockExpandableListActivity {
 		}
 
 		public void requery() {
-			String selectWhere = null;
-			/* show all groups, including offline
-			if (!showOffline)
-				selectWhere = "status_mode > 0";
-			*/
+			// show all groups, including offline
 			Cursor cursor = getContentResolver().query(RosterProvider.GROUPS_URI, GROUPS_QUERY,
-					selectWhere, null, "roster_group");
+					null, null, "roster_group");
 			Cursor oldCursor = getCursor();
 			changeCursor(cursor);
 			stopManagingCursor(oldCursor);
