@@ -111,7 +111,7 @@ public class RosterProvider extends ContentProvider {
 		}
 	}
 
-	public Uri insertGroup(ContentValues initialValues) {
+	private Uri insertGroup(ContentValues initialValues) {
 		String groupName = initialValues.getAsString(RosterConstants.GROUP);
 		if (mGroups.contains(groupName))
 			return null;
@@ -132,7 +132,7 @@ public class RosterProvider extends ContentProvider {
 		}
 		return noteUri;
 	}
-	public Uri insertGroupForContact(ContentValues contact) {
+	private Uri insertGroupForContact(ContentValues contact) {
 		ContentValues cv = new ContentValues();
 		String groupName = contact.getAsString(RosterConstants.GROUP);
 		cv.put(GroupsConstants.GROUP, groupName);
