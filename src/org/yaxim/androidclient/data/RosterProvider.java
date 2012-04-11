@@ -70,10 +70,7 @@ public class RosterProvider extends ContentProvider {
 		case GROUPS:
 			count = db.delete(TABLE_GROUPS, where, whereArgs);
 			mGroups = new java.util.HashSet<String>();
-			break;
-
-		case CONTACTS:
-			count = db.delete(TABLE_ROSTER, where, whereArgs);
+			getContext().getContentResolver().notifyChange(GROUPS_URI, null);
 			break;
 
 		case CONTACT_ID:
@@ -84,15 +81,16 @@ public class RosterProvider extends ContentProvider {
 			} else {
 				where = "_id=" + segment + " AND (" + where + ")";
 			}
-
+			/* fall through */
+		case CONTACTS:
 			count = db.delete(TABLE_ROSTER, where, whereArgs);
+			dropUnusedGroups(db);
 			break;
 
 		default:
 			throw new IllegalArgumentException("Cannot delete from URL: " + url);
 		}
 
-		getContext().getContentResolver().notifyChange(GROUPS_URI, null);
 		notifyChange();
 
 		return count;
@@ -137,6 +135,13 @@ public class RosterProvider extends ContentProvider {
 		String groupName = contact.getAsString(RosterConstants.GROUP);
 		cv.put(GroupsConstants.GROUP, groupName);
 		return insertGroup(cv);
+	}
+
+	private void dropUnusedGroups(SQLiteDatabase db) {
+		int rows = db.delete(TABLE_GROUPS, GroupsConstants.GROUP + " NOT IN (SELECT " +
+				RosterConstants.GROUP + " FROM " + TABLE_ROSTER + ")", null);
+		if (rows > 0)
+			getContext().getContentResolver().notifyChange(GROUPS_URI, null);
 	}
 
 	@Override
@@ -259,6 +264,7 @@ public class RosterProvider extends ContentProvider {
 		notifyChange();
 		// we also need to notify groups change
 		insertGroupForContact(values);
+		dropUnusedGroups(db);
 		return count;
 
 	}
